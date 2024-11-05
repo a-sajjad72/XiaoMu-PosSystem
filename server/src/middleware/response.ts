@@ -1,5 +1,6 @@
 import Expection from "@/base/exception";
 import { Middleware } from "@/decorator/use";
+import { ConnectionRefusedError } from "sequelize";
 
 const response: Middleware = async (ctx, next) => {
 
@@ -15,6 +16,12 @@ const response: Middleware = async (ctx, next) => {
                 message: error.message
             };
             ctx.status = error.status;
+        } else if (error instanceof ConnectionRefusedError) {
+            
+            ctx.body = {
+                message: error.name
+            };
+            ctx.status = 400;
         } else {
             ctx.body = {
                 message: error.message
