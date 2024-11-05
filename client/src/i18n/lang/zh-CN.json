@@ -1,5 +1,54 @@
 {
+    "AppName": "XMPosSystem",
     "Common": {
-        "okText": "确定"
+        "okText": "确定",
+        "saveBtnText": "保存",
+        "cancelBtnText": "取消",
+        "promptTitle": "询问"
+    },
+    "Pagination": {
+        "prevPageTip": "上一页",
+        "nextPageTip": "下一页",
+        "previous$Pages": "后退 $0 页",
+        "next$Pages": "前进 $0 页",
+        "limit$Option": "$0 / 页"
+    },
+    "Login": {
+        "loginTitle": "登录",
+        "accountPlaceholder": "账号",
+        "passwordPlaceholder": "密码",
+        "loginConfirmBtn": "登录",
+        "advancedSettingsBarText": "高级设置",
+        "forgetPasswordText": "忘记密码？",
+        "settingsTitle": "设置",
+        "backToLoginPanelBtnText": "后退",
+        "accountValidate": {
+            "invalidMsg": "请输入合法的账号",
+            "lengthLimit": "账号长度必须在3 ~ 10个字符之间"
+        },
+        "passwordValidate": {
+            "invalidMsg": "请输入合法的密码",
+            "lengthLimit": "密码长度必须在6 ~ 16个字符之间"
+        },
+        "Settings": {
+            "serverAddress": "服务器地址",
+            "addressExample": "示例: http://192.168.1.1:9527"
+        }
+    },
+    "NavLabel": {
+        "login": "登录",
+        "home": "首页",
+        "product": "商品",
+        "sales": "销售",
+        "productCategory": "分类",
+        "productList": "商品列表",
+        "salesOrder": "订单",
+        "user": "个人中心"
+    },
+    "NavUserMenu": {
+        "signOut": "注销",
+        "accountInfo": "账号详情",
+        "signOutDialogContent": "确定要退出登录吗？",
+        "signOutSuccessPrompt": "退出登录成功！"
     }
 }
