@@ -1,4 +1,4 @@
-@import "@/styles/mixins.scss";
+@use "@/styles/mixins.scss" as mixins;
 
 .login_field_input {
     height: 36px;
@@ -22,8 +22,8 @@
 
 .login_btn_group {
     color: red;
-    @include flex;
-    @include flex-justify-end;
+    @include mixins.flex;
+    @include mixins.flex-justify-end;
 
     button + button {
         margin-left: 16px;

@@ -1,4 +1,4 @@
-@import "@/styles/mixins.scss";
+@use "@/styles/mixins.scss" as mixins;
 
 :root {
     --nav-bar-height: 30px;
@@ -40,23 +40,23 @@ body {
 }
 
 .flex {
-    @include flex;
+    @include mixins.flex;
 }
 
 .flex-column {
-    @include flex-column;
+    @include mixins.flex-column;
 }
 
 .flex-justify-center {
-    @include flex-justify-center;
+    @include mixins.flex-justify-center;
 }
 
 .flex-justify-end {
-    @include flex-justify-end;
+    @include mixins.flex-justify-end;
 }
 
 .flex-align-center {
-    @include flex-align-center;
+    @include mixins.flex-align-center;
 }
 
 .flex-center {
@@ -64,7 +64,7 @@ body {
 }
 
 .flex-auto {
-    @include flex-auto;
+    @include mixins.flex-auto;
 }
 
 .text-center {

@@ -6,7 +6,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import XMForm, { FormItemType, FormConfig } from "@/components/XMForm";
 import useLocale from "@/hooks/useLocale";
 import { usePost } from "@/hooks/useHttp";
-import useMsg from "@/hooks/useMsg";
+import useToast from "@/hooks/useToast";
 import useAuth from "@/hooks/useAuth";
 
 import apiPath from "@/constants/apiPath";
@@ -26,7 +26,7 @@ const LoginForm = ({ }: Props, ref: Ref<HTMLFormElement>) => {
 
     const styles = useStyles();
     const { locale } = useLocale();
-    const Message = useMsg();
+    const Toast = useToast();
     const { handleLoginSuccess, isLogin } = useAuth();
     const location = useLocation();
 
@@ -109,7 +109,7 @@ const LoginForm = ({ }: Props, ref: Ref<HTMLFormElement>) => {
             handleLoginSuccess(res);
         } catch (err) {
             const errMsg = getValidationErrors(err);
-            Message.error(errMsg);
+            Toast.error(errMsg);
         }
     }
 
