@@ -18,12 +18,14 @@ const getRedirectPath = (from: string) => {
 export const RouteGuard: React.FC<Props> = ({ children, meta }: Props) => {
     const location = useLocation();
     const { isLogin } = useAuth();
-    
+
+    useTitle();
+
     if (meta?.auth && !isLogin) {
         return <Navigate to={getRedirectPath(location.pathname + location.search)} />;
     }
 
-    useTitle();
+
 
     return children;
 };
