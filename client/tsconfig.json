@@ -28,10 +28,7 @@
         ],
         "plugins": [
             {
-                "name": "typescript-plugin-css-modules",
-                "options": {
-                    "customMatcher": "\\.s?css$"
-                }
+                "name": "typescript-plugin-css-modules"
             }
         ]
     },

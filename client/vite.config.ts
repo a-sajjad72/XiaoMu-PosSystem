@@ -7,16 +7,23 @@ const fileUrl = url.fileURLToPath(import.meta.url);
 
 
 export default defineConfig({
-    base: "./",
+    base: "/",
     plugins: [
         reactVitePlugin()
     ],
     server: {
         port: 9528,
         proxy: {
-            '/api': {
-                target: 'http://localhost:9527',
+            "/api": {
+                target: "http://localhost:9527",
                 changeOrigin: true
+            }
+        }
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: "modern-compiler"
             }
         }
     },
