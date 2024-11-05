@@ -26,7 +26,7 @@ interface AuthContext {
     handleLogout: HandleLogout,
     handleLoginSuccess: HandleLoginSuccess
     handleUpdateUserInfo: HandleUpdateUserInfo
-};
+}
 
 export const AuthContext = createContext<AuthContext>({} as AuthContext);
 
