@@ -12,17 +12,17 @@ import router from "@/router/index";
 import store from "@/store/index";
 import AuthProvider from "@/provider/AuthProvider";
 import LocaleProvider from "@/provider/LocaleProvider";
-import Notice from "@/components/Notice/index";
+import XMToast from "@/components/XMToast";
 import XMDialog from "@/components/XMDialog";
 
-import useMsg from "@/hooks/useMsg";
+import useToast from "@/hooks/useToast";
 
 const App = () => {
 
-    const msg = useMsg();
+    const Toast = useToast();
 
     const handleSWRError = (err: Error) => {
-        msg.error(err.message);
+        Toast.error(err.message);
     }
 
     const swrConfig = {
@@ -33,7 +33,7 @@ const App = () => {
         <Provider store={store}>
             <FluentProvider theme={webLightTheme}>
                 <LocaleProvider>
-                    <Notice />
+                    <XMToast />
                     <XMDialog />
                     <SWRConfig value={swrConfig}>
                         <AuthProvider>

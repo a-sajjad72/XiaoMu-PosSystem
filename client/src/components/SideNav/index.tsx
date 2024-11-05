@@ -8,7 +8,7 @@ import { routes } from "@/router/module";
 import useLocale from "@/hooks/useLocale";
 import useDialog from "@/hooks/useDialog";
 import useAuth from "@/hooks/useAuth";
-import useMsg from "@/hooks/useMsg";
+import useToast from "@/hooks/useToast";
 import type { Route } from "@/router/utils";
 
 import classes from "./index.module.scss";
@@ -41,7 +41,7 @@ const SideNav = () => {
     const location = useLocation();
     const styles = useStyles();
     const Dialog = useDialog();
-    const Message = useMsg();
+    const Toast = useToast();
 
     type NavLabelKey = keyof typeof locale.NavLabel;
 
@@ -89,7 +89,7 @@ const SideNav = () => {
             content: locale.NavUserMenu.signOutDialogContent,
             onOk: () => {
                 handleLogout();
-                Message.success(locale.NavUserMenu.signOutSuccessPrompt);
+                Toast.success(locale.NavUserMenu.signOutSuccessPrompt);
             }
         });
     }

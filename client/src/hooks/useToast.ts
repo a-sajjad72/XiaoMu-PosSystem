@@ -1,10 +1,10 @@
-import { NoticeType } from "@/components/Notice";
+import { ToastTypeEnum } from "@/components/XMToast";
 import EventBus from "@/utils/event";
 import EventEnum from "@/constants/event";
 
-const useMsg = () => {
+const useToast = () => {
 
-    const addMsg = (message: string, type: NoticeType, timeout: number) => {
+    const addMsg = (message: string, type: ToastTypeEnum, timeout: number) => {
         EventBus.publish(EventEnum.NOTICE, {
             message,
             type,
@@ -13,22 +13,22 @@ const useMsg = () => {
     }
 
     return {
-        notice(msg: string, type: NoticeType, timeout: number = 2000) {
+        notice(msg: string, type: ToastTypeEnum, timeout: number = 2000) {
             addMsg(msg, type, timeout);
         },
         success(msg: string, timeout: number = 2000) {
-            this.notice(msg, "success", timeout);
+            this.notice(msg, ToastTypeEnum.SUCCESS, timeout);
         },
         error(msg: string, timeout: number = 2000) {
-            this.notice(msg, "error", timeout);
+            this.notice(msg, ToastTypeEnum.ERROR, timeout);
         },
         info(msg: string, timeout: number = 2000) {
-            this.notice(msg, "info", timeout);
+            this.notice(msg, ToastTypeEnum.INFO, timeout);
         },
         warning(msg: string, timeout: number = 2000) {
-            this.notice(msg, "warning", timeout);
+            this.notice(msg, ToastTypeEnum.WARNING, timeout);
         }
     };
 }
 
-export default useMsg;
+export default useToast;
