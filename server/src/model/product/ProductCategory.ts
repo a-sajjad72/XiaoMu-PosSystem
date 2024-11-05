@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { Table, Column, Model, PrimaryKey } from "sequelize-typescript";
+import { Table, Column, Model, PrimaryKey, DataType } from "sequelize-typescript";
 
 
 @Table({
@@ -8,19 +8,19 @@ import { Table, Column, Model, PrimaryKey } from "sequelize-typescript";
 export class ProductCategory extends Model<ProductCategory> {
 
     @PrimaryKey
-    @Column
+    @Column(DataType.INTEGER)
     declare id: number;
 
-    @Column
+    @Column(DataType.STRING)
     declare name: string;
 
-    @Column
+    @Column(DataType.STRING)
     get created_at(): string {
         const value = this.getDataValue("created_at");
         return dayjs(value).format("YYYY/MM/DD HH:mm:ss");
     }
 
-    @Column
+    @Column(DataType.STRING)
     get updated_at(): string {
         const value = this.getDataValue("updated_at");
         return dayjs(value).format("YYYY/MM/DD HH:mm:ss");

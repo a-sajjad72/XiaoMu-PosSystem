@@ -1,4 +1,4 @@
-import { Table, Column, Model } from "sequelize-typescript";
+import { Table, Column, Model, DataType } from "sequelize-typescript";
 
 
 @Table({
@@ -7,10 +7,10 @@ import { Table, Column, Model } from "sequelize-typescript";
 })
 export class Product extends Model<Product> {
 
-    @Column
+    @Column(DataType.STRING)
     declare name: string;
 
-    @Column
+    @Column(DataType.NUMBER)
     declare price: number;
 }
 

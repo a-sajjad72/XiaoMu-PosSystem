@@ -5,11 +5,13 @@ interface DataBaseConfig extends SequelizeOptions {
 }
 
 const config: DataBaseConfig = {
-    database: "test",
-    dialect: "mysql",
-    username: "root",
-    password: "123456",
-    tablePrefix: "xm_"
+    database: "postgres",
+    dialect: "postgres",
+    username: "postgres",
+    password: "xxxxxx.",
+    tablePrefix: "xm_",
+    host: "localhost",
+    port: 9981
 };
 
 export default config;

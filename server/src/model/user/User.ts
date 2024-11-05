@@ -1,4 +1,4 @@
-import { Table, Column, Model, PrimaryKey } from "sequelize-typescript";
+import { Table, Column, Model, PrimaryKey, DataType } from "sequelize-typescript";
 
 
 @Table({
@@ -8,16 +8,16 @@ import { Table, Column, Model, PrimaryKey } from "sequelize-typescript";
 export class User extends Model<User> {
 
     @PrimaryKey
-    @Column
+    @Column(DataType.INTEGER)
     declare uid: number;
 
-    @Column
+    @Column(DataType.STRING)
     declare account: string;
 
-    @Column
+    @Column(DataType.STRING)
     declare password: string;
 
-    @Column
+    @Column(DataType.STRING)
     declare username: string;
 }
 
