@@ -7,30 +7,32 @@
   "scripts": {
     "build": "tsc && tsc-alias",
     "dev": "nodemon src/index.ts",
+    "next:dev": "tsx watch --clear-screen=false src/index.ts",
     "update:package": "npx ncu -i"
   },
   "dependencies": {
-    "@koa/router": "^12.0.0",
-    "dayjs": "^1.11.8",
-    "joi": "^17.9.2",
-    "jsonwebtoken": "^9.0.0",
-    "koa": "^2.14.2",
+    "@koa/router": "^13.1.0",
+    "dayjs": "^1.11.13",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "koa": "^2.15.3",
     "koa-body": "^6.0.1",
-    "mysql2": "^3.2.4",
-    "reflect-metadata": "^0.1.13",
-    "sequelize": "^6.31.1",
-    "sequelize-typescript": "^2.1.5"
+    "pg": "^8.13.1",
+    "pg-hstore": "^2.3.4",
+    "reflect-metadata": "^0.2.2",
+    "sequelize": "^6.37.5",
+    "sequelize-typescript": "^2.1.6"
   },
   "devDependencies": {
-    "@types/jsonwebtoken": "^9.0.2",
-    "@types/koa": "^2.13.6",
-    "@types/koa__router": "^12.0.0",
-    "@types/node": "^18.16.3",
-    "@types/validator": "^13.7.15",
-    "nodemon": "^2.0.22",
-    "npm-check-updates": "^16.10.9",
-    "ts-node": "^10.9.1",
-    "tsc-alias": "^1.8.6",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/koa": "^2.15.0",
+    "@types/koa__router": "^12.0.4",
+    "@types/node": "^22.8.7",
+    "@types/validator": "^13.12.2",
+    "nodemon": "^3.1.7",
+    "npm-check-updates": "^17.1.9",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.10",
     "tsconfig-paths": "^4.2.0"
   }
 }
