@@ -5,16 +5,16 @@ import { mathc } from "../../lib/mathc.js";
 class CommodityTask {
 
     static async getCommodityDetails(query, warequeryFlag = false) {
-        // 根据查询条件返回商品详情
+        // Return commodity details based on query conditions
 
         const query_fields = ["barcode", "pinyin", "name"]
-        // 分别从条码、拼音首字母缩写、名称来查询
+        // Query from barcode, pinyin initials, and name respectively
 
         const front_field_list = ["id", "barcode", "name", "unit", "size", "sale_price", "vip_points", "is_delete"];
-        // 前台进行销售时需要的字段
+        // Fields needed for frontend sales
 
         const ware_field_list = ["id", "barcode", "category_id", "name", "in_price", "sale_price", "is_delete"];
-        // 仓库进行查询时需要的字段
+        // Fields needed for warehouse queries
 
 
         const need_fields = (warequeryFlag ? ware_field_list : front_field_list).join(", ");
@@ -47,17 +47,17 @@ class CommodityTask {
 
 
     static async parseCommodityList(list) {
-        // 将商品属性转换为所需的格式
+        // Convert commodity attributes to required format
 
         const time = new Date().getTime();
-        // 当前时间戳
+        // Current timestamp
 
         const promo_list = await PromotionTask.queryPromoByNowTime(time);
-        // 当前之间内是否有促销活动
+        // Check if there are promotional activities within current time
 
 
         if (!promo_list) {
-            // 没有促销活动，直接进行属性map
+            // No promotional activities, directly map attributes
 
             return list.map(({ sale_price, vip_points, is_delete, ...keys }) => {
                 return {
@@ -70,7 +70,7 @@ class CommodityTask {
                 }
             });
         } else {
-            // 有促销活动，按照促销活动规则进行优惠
+            // Have promotional activities, apply discounts according to promotional rules
 
             const promo_type_list = await PromotionTask.getPromotionType();
 
@@ -94,7 +94,7 @@ class CommodityTask {
                         barcode,
                         vip_points: vip_points === 1,
                         is_delete: is_delete === 1,
-                        status: "销售",
+                        status: "Sale",
                         origin_price: sale_price,
                         sale_price
                     };

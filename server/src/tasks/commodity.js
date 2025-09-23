@@ -105,9 +105,9 @@ class CommodityTask {
         not_need_map = false
     ) {
         // not_need_map
-        // 不需要转换商品信息
+        // Do not need to convert commodity information
 
-        // 查看商品信息
+        // View commodity information
 
         if (!query) return query;
 
@@ -132,7 +132,7 @@ class CommodityTask {
         vip_points = true,
         is_delete = false
     }) {
-        // 创建新的商品
+        // Create new commodity
 
         let barcode = _barcode;
         if (!barcode) {

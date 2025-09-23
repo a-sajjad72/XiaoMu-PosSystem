@@ -1,33 +1,33 @@
 ```
-windows下需要编译工具
+Windows requires build tools
 npm i -g windows-build-tools
 ```
 
-如果出现如下报错，打开`Visual Studio Installer`，点击`Visual Studio 15生成工具2017`下的`修改`，勾选右侧的`适用于桌面的VC++ 2015.3 v14.00(v140)工具集`，并点击`修改`，耐心等待即可.
+If you encounter the following error, open `Visual Studio Installer`, click `Modify` under `Visual Studio Build Tools 2017`, check `VC++ 2015.3 v14.00 (v140) toolset for desktop` on the right side, and click `Modify`, then wait patiently.
 
 ```
-若要使用 v140 生成工具进行生成，请安装 v140 生成工具。或者，可以升级到当前 Visual Studio 工具，方式是通过选择“项目”菜单或右键单击该解决方案，然后选择“重定解决方案目标”
+To build using v140 build tools, please install v140 build tools. Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-clicking the solution, and then selecting "Retarget solution"
 ```
-### B站视频演示
+### Bilibili Video Demo
 
 ```
 https://www.bilibili.com/video/BV1Ua4y1t7cM/
 ```
 
 
-### 前端
+### Frontend
 ```
 cd client
 npm i
 npm run build:electron
 ```
 
-### 后端
+### Backend
 ```
 cd server
 
 npm run initdb
-// 初始化数据库
+// Initialize database
 
 npm i
 npm run build
@@ -38,8 +38,8 @@ npm run build
 npm i
 
 npm run postinstall
-// 重新为目标平台编译依赖C/C++的模块
+// Recompile C/C++ dependent modules for target platform
 
-npm build
-// 开始编译
+npm run build
+// Start building
 ```

@@ -8,21 +8,21 @@ route.get("/:query", async (req, res, next) => {
 
     const { warehouse } = req.query;
     const isWareQueryFlag = warehouse && warehouse === "true";
-    // 是否仓库管理界面查询的flag
+    // Flag for warehouse management interface query
 
     const { isAdmin } = req["jwt_value"];
 
     if (isWareQueryFlag && !isAdmin) {
-        return throwError(next, "非管理员组用户无法执行此操作!");
+        return throwError(next, "Non-admin users cannot perform this operation!");
     }
 
     const { query } = req.params;
 
     const list = await CommodityTask.getCommodityDetails(query.toUpperCase(), isWareQueryFlag);
-    // 查询结果
+    // Query results
 
     if (isWareQueryFlag) {
-        // 如果是仓库管理界面查询，就直接返回列表，无需进行解析
+        // If warehouse management interface query, return list directly without parsing
 
         return res.json(list);
     }
