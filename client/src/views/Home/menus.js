@@ -27,136 +27,136 @@ import { System } from "./Main/system";
 
 export const menus = [
     {
-        title: "系统主页",
+        title: "System Home",
         path: "/home",
         icon: "home",
         permission: false,
         component: Home
     },
     {
-        title: "前台销售",
+        title: "POS Sales",
         path: "/home/market",
         icon: "shop",
         permission: false,
         component: Cash
     },
     {
-        title: "促销管理",
+        title: "Promotion Management",
         path: "/home/promotion",
         icon: "icon-cuxiaohuodong",
         icon_online: true,
         children: [
             {
-                title: "活动管理",
+                title: "Activity Management",
                 path: "/home/promotion/manage",
                 component: Promotion
             },
             {
-                title: "活动商品管理",
+                title: "Promotional Product Management",
                 path: "/home/promotion/commodity",
                 component: PromotionCommodityManage
             }
         ]
     },
     {
-        title: "仓储管理",
+        title: "Warehouse Management",
         path: "/home/warehouse",
         icon: "icon-cangkuguanli",
         icon_online: true,
         children: [
             {
-                title: "供应商管理",
+                title: "Supplier Management",
                 path: "/home/warehouse/supplier",
                 component: Supplier
             },
             {
-                title: "进货管理",
+                title: "Stock Management",
                 path: "/home/warehouse/stock",
                 component: Stock
             },
             {
-                title: "商品管理",
+                title: "Product Management",
                 path: "/home/warehouse/commodity",
                 component: Commodity
             },
             {
-                title: "标签打印",
+                title: "Label Printing",
                 path: "/home/warehouse/barcodeprint",
                 component: BarcodePrint
             }
         ]
     },
     {
-        title: "会员管理",
+        title: "Member Management",
         path: "/home/vip",
         icon: "icon-huiyuan-",
         icon_online: true,
         children: [
             {
-                title: "会员管理",
+                title: "Member Management",
                 path: "/home/vip/manage",
                 component: Vip
             },
             {
-                title: "高级功能",
+                title: "Advanced Features",
                 path: "/home/vip/setting",
                 component: VipSetting
             }
         ]
     },
     {
-        title: "数据统计",
+        title: "Data Statistics",
         path: "/home/statistics",
         icon: "pie-chart",
         children: [
             {
-                title: "订单明细",
+                title: "Order Details",
                 path: "/home/statistics/orders",
                 component: Orders
             },
             {
-                title: "占比分析",
+                title: "Proportion Analysis",
                 path: "/home/statistics/proportion",
                 component: Proportion
             },
             {
-                title: "趋势分析",
+                title: "Trend Analysis",
                 path: "/home/statistics/trends",
                 component: Trends
             }
         ]
     },
     {
-        title: "用户管理",
+        title: "User Management",
         path: "/home/users",
         icon: "user",
         component: UserManage
     },
     {
-        title: "数据管理",
+        title: "Data Management",
         path: "/home/data",
         icon: "database",
         children: [
             {
-                title: "商品导入",
+                title: "Product Import",
                 path: "/home/data/import",
                 component: DataImport
             },
             {
-                title: "数据导出",
+                title: "Data Export",
                 path: "/home/data/export",
                 component: DataExport
             },
         ]
     },
     {
-        title: "设备管理",
+        title: "Device Management",
         path: "/home/device",
         icon: "printer",
         component: Device
     },
     {
-        title: "系统设置",
+        title: "System Settings",
         path: "/home/system",
         icon: "setting",
         component: System

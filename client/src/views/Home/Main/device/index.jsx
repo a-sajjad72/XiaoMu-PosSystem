@@ -59,7 +59,7 @@ export function Device() {
 
     return (
         <div className={styled["device-wrap"]}>
-            <Card title="设备列表">
+            <Card title="Device List">
                 {
                     config.map(({ id, title }) => (
                         <Card.Grid onClick={handleClick.bind(null, id)} key={id}>{title}</Card.Grid>

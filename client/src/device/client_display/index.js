@@ -14,7 +14,7 @@ export class ClientDisplay {
     }) {
         // 设置客显显示内容
 
-        console.log(`[设备]客显: 当前应付金额${all_price}, 付款金额${pay_price}, 找零金额${change}`);
+        console.log(`[Device]Customer Display: Current amount due ${all_price}, payment amount ${pay_price}, change amount ${change}`);
     }
 
     static async reset() {

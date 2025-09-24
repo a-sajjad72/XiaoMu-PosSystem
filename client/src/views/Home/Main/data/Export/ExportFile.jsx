@@ -15,7 +15,7 @@ export function ExportFile({
             component: (
                 <Button size="large" type="primary" onClick={startExport}>
                     <Icon type="download" />
-                    开始导出
+                    Start Export
                 </Button>)
         },
         {
@@ -23,7 +23,7 @@ export function ExportFile({
             component: (
                 <Spin
                     size="large"
-                    tip={`正在导出${dataType}，请稍候...`}
+                    tip={`Exporting ${dataType}, please wait...`}
                     indicator={<Icon type="loading" style={{ fontSize: 48 }} spin />}
                 />
             )
@@ -33,9 +33,9 @@ export function ExportFile({
             component: (
                 <Result
                     status="error"
-                    title={`${dataType}导出失败!`}
+                    title={`${dataType} export failed!`}
                     extra={[
-                        <Button onClick={startExport} key="restart" type="primary">重新导出</Button>
+                        <Button onClick={startExport} key="restart" type="primary">Re-export</Button>
                     ]}
                 />
             )
@@ -45,7 +45,7 @@ export function ExportFile({
             component: (
                 <Result
                     status="success"
-                    title={`${dataType}导出成功!`}
+                    title={`${dataType} export successful!`}
                     extra={[
                         <Button onClick={reset} key="reset" type="primary">继续导出</Button>
                     ]}

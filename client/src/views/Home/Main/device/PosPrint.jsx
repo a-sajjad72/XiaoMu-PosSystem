@@ -19,7 +19,7 @@ function _PosPrint({
     const config = [
         {
             id: "pos",
-            label: "小票打印机",
+            label: "Receipt Printer",
             initialValue: PosPrintConfig.getPosPrintName(),
             component: (
                 <Select>
@@ -45,10 +45,10 @@ function _PosPrint({
     const posName = getFieldValue("pos");
 
     function handleSave() {
-        // 保存小票机打印配置
+        // Save receipt printer configuration
 
         PosPrintConfig.setPosPrintName(posName);
-        message.success("小票打印机配置成功!");
+        message.success("Receipt printer configured successfully!");
         closeFn();
     }
 

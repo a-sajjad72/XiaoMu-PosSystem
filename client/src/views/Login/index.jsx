@@ -66,14 +66,14 @@ function _Login({ form }) {
             const userValue = {
                 value: username,
                 errors: [
-                    new Error("请输入正确的用户名!")
+                    new Error("Please enter correct username!")
                 ]
             };
 
             const passValue = {
                 value: password,
                 errors: [
-                    new Error("请输入正确的密码!")
+                    new Error("Please enter correct password!")
                 ]
             };
 
@@ -125,18 +125,18 @@ function _Login({ form }) {
                                     rules: [
                                         {
                                             required: true,
-                                            message: "请输入用户名!"
+                                            message: "Please enter username!"
                                         },
                                         {
                                             pattern: /^\S*$/g,
-                                            message: "用户名中不能有空格!"
+                                            message: "Username cannot contain spaces!"
                                         }
                                     ]
                                 }
                             )(
                                 <Input
                                     type="text"
-                                    placeholder="请输入账号"
+                                    placeholder="Please enter account"
                                     prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
                                 />
 
@@ -154,7 +154,7 @@ function _Login({ form }) {
                                     rules: [
                                         {
                                             required: true,
-                                            message: "请输入密码!"
+                                            message: "Please enter password!"
                                         },
                                         {
                                             pattern: /^\S*$/g,
@@ -165,7 +165,7 @@ function _Login({ form }) {
                             )(
                                 <Input
                                     type="password"
-                                    placeholder="请输入密码"
+                                    placeholder="Please enter password"
                                     prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
                                 />
                             )
@@ -188,7 +188,7 @@ function _Login({ form }) {
                                 width: "100%"
                             }}
                             disabled={hasError()}
-                            type="primary" htmlType="submit">登录</Button>
+                            type="primary" htmlType="submit">Login</Button>
                     </Form.Item>
                     <ConnectConfig />
                 </Form>

@@ -48,7 +48,7 @@ export function UploadFile({
     function handleRemove(uid) {
         setFileList(list => list.filter(i => i.uid !== uid));
         setLoadType(null);
-        message.success("删除成功!");
+        message.success("Deleted successfully!");
     }
 
     function handleUpload(files) {
@@ -73,18 +73,18 @@ export function UploadFile({
                 
                 setLoadType({
                     type: "done",
-                    text: `${files.name}上传完成!`
+                    text: `${files.name} upload completed!`
                 });
                 setFileList(list => [...list, files])
-                message.success("文件上传完成!");
+                message.success("File upload completed!");
 
                 setData(data);
             } catch (error) {
-                message.warn("文件类型不正确!");
+                message.warn("Incorrect file type!");
 
                 setLoadType({
                     type: "done",
-                    text: `${files.name}类型不正确!`
+                    text: `${files.name} incorrect file type!`
                 });
             }
         }
@@ -98,7 +98,7 @@ export function UploadFile({
     function handleChange(info) {
         setLoadType({
             type: "load",
-            text: `正在上传${info.file.name}`
+            text: `Uploading ${info.file.name}`
         });
     }
 
@@ -118,10 +118,10 @@ export function UploadFile({
                     <Icon type="inbox" />
                 </p>
                 <p className="ant-upload-text">
-                    点此上传文件或者将文件拖动至此处
+                    Click to upload files or drag files here
                 </p>
                 <p className="ant-upload-hint">
-                    支持上传xlsx和xls格式的文件，当数据过大时页面可能会出现暂时卡死情况，请耐心等待
+                    Supports uploading xlsx and xls format files. When data is large, the page may freeze temporarily, please wait patiently
                 </p>
                 <p className={styled["upload-status"]}>
                     {Status}

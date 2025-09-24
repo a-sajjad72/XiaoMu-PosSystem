@@ -22,14 +22,14 @@ function createWindow() {
         },
     });
 
-    // 加载应用----适用于 react 项目
+    // Load application - suitable for React projects
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, "./client/dist/index.html"),
         protocol: "file",
         slashes: true
     }));
 
-    // 打开开发者工具，默认不打开
+    // Open developer tools, disabled by default
     // mainWindow.webContents.openDevTools()
 
     process.env.NODE_ENV === "development" && mainWindow.webContents.openDevTools({ mode: "right" });

@@ -7,23 +7,23 @@ export class DahuaScale {
     }
 
     convertDataToPlu(data) {
-        // 转换商品信息为plu信息
+        // Convert product information to PLU information
 
         function convertToCent(s) {
             if (s > 9999.99) return 999999;
 
             let str = s * 100 + "";
-            // 转单位元为分
+            // Convert unit from yuan to cents
 
             function setLen(s) {
                 if (s.length === 6) return s;
-                // 6个字符的长度直接返回
+                // Return directly if length is 6 characters
 
                 if (s.length > 6) return setLen(s.slice(s, s.length - 1));
-                // 如果字符长度大于6， 从最后一位开始删减
+                // If character length is greater than 6, trim from the last character
 
                 if (s.length < 6) return setLen("0" + s);
-                // 字符长度如果小于6，从字符串前方开始补零
+                // If character length is less than 6, pad with zeros from the front of the string
             }
 
             return setLen(str);

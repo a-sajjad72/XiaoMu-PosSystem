@@ -5,7 +5,7 @@ import { mathc } from "../lib/mathc.js";
 class VipTasks {
 
     static async getVipDetails(vip, type = "code", needMap = true) {
-        // 获取会员详细信息
+        // Get member detailed information
 
         if (!vip) {
             let list = await AppDAO.all(`
@@ -43,7 +43,7 @@ class VipTasks {
     }
 
     static async getVipCurrentValue(vip, isId = false) {
-        // 获取会员卡当前积分值
+        // Get current member card points value
 
         if (isId) {
             return await AppDAO.get(`
@@ -67,7 +67,7 @@ class VipTasks {
     }
 
     static async getVipTypeDetails(type) {
-        // 获取会员卡类型详情
+        // Get member card type details
 
         const query = (typeof type === "number") ? "id" : "name";
         return await AppDAO.get(`
@@ -76,7 +76,7 @@ class VipTasks {
     }
 
     static async createVipScoreMember(id) {
-        // 创建积分卡会员记录
+        // Create points card member record
 
         return await AppDAO.run(`
         INSERT INTO vip_value (vip_id) 
@@ -93,7 +93,7 @@ class VipTasks {
         ;`, [code]);
     }
 
-    static async changeVipMember(old_code, new_code, description = "无") {
+    static async changeVipMember(old_code, new_code, description = "None") {
         // 会员补换卡
 
         await this.updateVipMember({
@@ -126,7 +126,7 @@ class VipTasks {
 
 
     static async createVipMember({
-        code, name, vip_type: vip_type_name = "积分卡", sex, phone, is_disable = false, work_type = "办理", create_date = new Date().getTime(), change_date, type_id
+        code, name, vip_type: vip_type_name = "Points Card", sex, phone, is_disable = false, work_type = "Apply", create_date = new Date().getTime(), change_date, type_id
     }) {
         // 建立新的会员
 
@@ -161,7 +161,7 @@ class VipTasks {
         const { lastID } = result;
 
         switch (vip_type_name) {
-            case "积分卡":
+            case "Points Card":
                 await this.createVipScoreMember(lastID);
                 break;
         }
@@ -279,7 +279,7 @@ class VipTasks {
     }
 
     static async undoOrderMinusVipPoints(code, point, price) {
-        // 撤销订单时减少会员积分
+        // Reduce member points when canceling order
 
         const { vip_id, vip_sum, sale_sum } = await this.getVipCurrentValue(code);
 
@@ -294,7 +294,7 @@ class VipTasks {
     }
 
     static async minusVipPoints(code, point) {
-        // 减少会员积分
+        // Reduce member points
 
         const { vip_id, vip_sum } = await this.getVipCurrentValue(code);
 
@@ -329,7 +329,7 @@ class VipTasks {
     }
 
     static async getVipPointsRules() {
-        // 获取会员卡积分比例
+        // Get member card points ratio
 
         const { money, point } = await AppDAO.get(`
         SELECT * FROM vip_score_rules
@@ -341,7 +341,7 @@ class VipTasks {
     }
 
     static async setVipPointsRules(point) {
-        // 设置会员卡积分比例
+        // Set member card points ratio
 
         return await AppDAO.run(`
         UPDATE vip_score_rules SET point=? WHERE (
