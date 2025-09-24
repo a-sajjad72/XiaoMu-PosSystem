@@ -23,7 +23,7 @@ async function init() {
         usergroup TEXT UNIQUE NOT NULL
     );
     `);
-    // 创建用户组列表
+    // Create user group list
 
     await dao.run(`
     CREATE TABLE IF NOT EXISTS users (
@@ -35,7 +35,7 @@ async function init() {
         FOREIGN KEY (group_id) REFERENCES groups (id)
     );
     `);
-    // 创建用户列表
+    // Create user list
 
     await dao.run(`
     CREATE TABLE IF NOT EXISTS authority(
@@ -43,7 +43,7 @@ async function init() {
         authority TEXT UNIQUE NOT NULL
     );
     `);
-    // 创建权限列表
+    // Create permissions list
 
     await dao.run(`
     CREATE TABLE IF NOT EXISTS groups_authority(
@@ -54,7 +54,7 @@ async function init() {
         FOREIGN KEY (authority_id) REFERENCES authority (id)
     );
     `);
-    // 创建用户组-权限一对一列表
+    // Create user group-permission one-to-one list
 
     await Promise.all(
         moduleList.map(item =>
@@ -70,7 +70,7 @@ async function init() {
     SELECT id FROM authority
     ;`)).map(({ id }) => id);
     await GroupTask.createGroup(default_admin_group_name, authorityIDList);
-    // 创建默认管理员群组
+    // Create default administrator group
     // 填充默认管理员群组权限
 
     const hash = await genHash(default_admin_password);
@@ -78,7 +78,7 @@ async function init() {
     SELECT id FROM groups WHERE usergroup="${default_admin_group_name}"
     ;`);
     await UserTask.createUser(default_admin_username, hash, group_id);
-    // 创建默认管理员
+    // Create default administrator
 
     const posAuthorityIdList = await Promise.all(posModuleList.map(async i => (
         await dao.get(`
@@ -88,7 +88,7 @@ async function init() {
     // 默认收银员组权限ID列表
 
     await GroupTask.createGroup(default_pos_group_name, posAuthorityIdList);
-    // 创建默认收银员组
+    // Create default cashier group
 
     const posHash = await genHash(default_pos_password);
     const { id: pos_group_id } = await dao.get(`
@@ -96,7 +96,7 @@ async function init() {
     ;`, default_pos_group_name);
 
     await UserTask.createUser(default_pos_username, posHash, pos_group_id);
-    // 创建默认收银员
+    // Create default cashier
 
 
 
@@ -107,7 +107,7 @@ async function init() {
         parent_id INTEGER
     )
     ;`);
-    // 创建商品分类表
+    // Create product category table
 
     await dao.run(`
     CREATE TABLE IF NOT EXISTS commodity (
@@ -130,7 +130,7 @@ async function init() {
         FOREIGN KEY (category_id) REFERENCES categories (id)
     )
     ;`);
-    // 创建商品表
+    // Create product table
 
     await dao.run(`
     CREATE TABLE IF NOT EXISTS custom_barcode (
